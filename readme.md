@@ -334,12 +334,12 @@ alert(foo())
 
 > Grab a Snickers || Try implementing [fizzBuzz](https://github.com/ga-wdi-exercises/fizzBuzz_redux) with Functions!
 
-### Break (10 minutes / 1:15)
+### Break (10 minutes / 1:20)
 
 
 ## Scope
 
-## What Is Scope? (15 minutes / 0:15)
+### What Is Scope? (15 minutes / 1:35)
 
 **In real life:** Your "scope" is what your eyes can see from wherever you're standing.
 
@@ -349,7 +349,7 @@ alert(foo())
 
 > Two ways of saying the same thing.
 
-## Quick Example
+#### Quick Example
 
 Here's a code snippet that demonstrates some of Javascript's fundamental rules of scope...
 
@@ -373,13 +373,13 @@ getAnotherColor();
 console.log(anotherColor); // What should we see in the console?
 ```
 
-## Rules of Scope in JS
+#### Rules of Scope in JS
 
 In Javascript, there are two types of scope: **global scope** and **local scope**.
 
 There are four simple rules to remember about scope in JS...
 
-1. Variables created **without** the `var`, `let`, or `const` keywords, no matter where in a program, are placed in the global scope. **This is bad form.**
+1. Variables created **without** the `var`, `let`, or `const` keywords, no matter where in a program, are placed in the global scope.
 2. Variables created **with** the `var`, `let`, or `const` keywords are created in the current local scope.
 3. All functions create a new local scope.
 4. The current scope includes all outer (enclosing) scopes.
@@ -393,7 +393,7 @@ Another way to say this...
 * **Local variables** defined inside a function cannot be accessed from anywhere outside of the function, because the variable is defined only within the scope of the function.
 * However, a function can access all variables and functions defined inside the scope in which it is defined (which includes all outer scopes).
 
-### We Do: A More Complex Example (15 minutes / 0:30)
+### We Do: A More Complex Example (15 minutes / 1:50)
 
 Let's walk through this example in two steps...
   1. Identify and diagram the scope of each variable.  
@@ -433,9 +433,9 @@ console.log(batterName);  // Does this work?
 
 </details>
 
-## Hoisting
+### Hoisting (10 minutes / 2:00)
 
-### Functions
+#### Functions
 
 A Javascript feature that may impact scope is **hoisting**. This applies to Javascript functions.
 
@@ -478,7 +478,7 @@ function sayHello(){
 
 
 
-### Variables
+#### Variables
 
 Variables are hoisted too, but *their values are not*. More precisely, variable initializations are hoisted, but value assignments are not hoisted.
 
@@ -493,7 +493,7 @@ var firstName = "John";
 // My name is undefined
 ```
 
-### You Do: An Even More Complex Example (15 minutes / 0:45)
+### You Do: An Even More Complex Example (15 minutes / 2:15)
 
 > 10 minutes exercise. 5 minutes review.
 
@@ -528,7 +528,7 @@ var removeYears = function(){
 };
 ```
 
-## You Do: Test Your Scope Knowledge (15 minutes / 1:00)
+### You Do: Test Your Scope Knowledge (15 minutes / 2:30)
 
 > 10 minutes exercise. 5 minutes review.
 
@@ -559,47 +559,66 @@ var profileID = 4011989;
 ```
 
 1. The variable `username` **has a value** on which lines? (That is: on which lines will `console.log`ing it not return `undefined`?)
-  - A, B, I, J, K
-  - A and B
-  - All lines
-  - All lines except A
+    - A, B, I, J, K
+    - A and B
+    - All lines
+    - All lines except A
 1. The variable `profileID` **has a value** on which lines?
-  - A, B, I, J, K
-  - K
-  - All lines
-  - All lines except A
+    - A, B, I, J, K
+    - K
+    - All lines
+    - All lines except A
 1. The variable `profileID` **is accessible** on which lines? (That is: on which lines can it be `console.log`ged without throwing an error?)
-  - A, B, I, J, K
-  - K
-  - All lines
-  - All lines except A
+    - A, B, I, J, K
+    - K
+    - All lines
+    - All lines except A
 1. The variable `sessionID` **is accessible** on which lines?
-  - C, D, E, F, G, H
-  - C, D, E, H
-  - All lines
-  - All lines except F and G
+    - C, D, E, F, G, H
+    - C, D, E, H
+    - All lines
+    - All lines except F and G
 1. The function `decrypt` **is accessible** on which lines?
-  - C, D, E, F, G, H
-  - C, D, E, H
-  - All lines
-  - All lines except F and G
+    - C, D, E, F, G, H
+    - C, D, E, H
+    - All lines
+    - All lines except F and G
 
 <details>
 
   <summary><strong>When you've finished...</strong></summary>
 
-  <ol>
-    <li>All lines except A. The variable is available on all lines due to hoisting, but it only has a value after `username =`.</li>
-    <li>K. The variable is available on all lines due to hoisting, but it only has a value after `profileID =`.</li>
-    <li>All lines.</li>
-    <li>C, D, E, F, G, H</li>
-    <li>C, D, E, F, G, H</li>
-  </ol>
+  1. All lines except A. The variable is available on all lines due to hoisting, but it only has a value after `username =`
+  1. K. The variable is available on all lines due to hoisting, but it only has a value after `profileID =`
+  1. All lines.
+  1. C, D, E, F, G, H
+  1. C, D, E, F, G, H
 
 </details>
 
-## Break (10 minutes / 1:10)
 
+### Bonus: Immediately-Invoked Function Expressions
+
+When you are working on larger, more complex applications (particularly ones with multiple linked scripts), the use of global variables can cause trouble. Since all global variables are defined on the `window` object, declaring too many global variables (commonly called "polluting the global namespace") increases the risk of variables overwriting each other and thereby causing errors.
+
+One simple solution for this is to wrap each script's JavaScript code in an Immediately-Invoked Function Expression (IIFE). An IIFE is a function that, when loaded into the browser, immediately invokes itself and thereby creates a new local scope to enclose all variables within it.
+
+```js
+(function() {    // IIFE
+
+  var username = "XxXskaterBoi2004XxX";
+  function logIn(){
+      var sessionID = "8675309";
+      return decrypt(sessionID);
+      function decrypt(string){
+          var token = profileID
+  }
+  logIn();
+  var profileID = 4011989;
+
+})()
+```
+> NOTE: Using an IIFE would prevent you from being able to access variables and functions within it from the console. Therefore, for now, you should refrain from using it
 -------
 
 ## Sample Quiz Questions
