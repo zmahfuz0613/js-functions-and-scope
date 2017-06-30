@@ -355,22 +355,22 @@ Here's a code snippet that demonstrates some of Javascript's fundamental rules o
 
 ```js
 function getColor() {
-  color = "red";
+  color = "red"
 }
 
-getColor();
-console.log(color); // What should we see in the console?
+getColor()
+console.log(color) // What should we see in the console?
 ```
 
 Let's see what happens if we add the `var` keyword...
 
 ```js
 function getAnotherColor() {
-  var anotherColor = "green";
+  var anotherColor = "green"
 }
 
-getAnotherColor();
-console.log(anotherColor); // What should we see in the console?
+getAnotherColor()
+console.log(anotherColor) // What should we see in the console?
 ```
 
 #### Rules of Scope in JS
@@ -400,27 +400,27 @@ Let's walk through this example in two steps...
   2. Determine whether each `console.log` will error out or not.
 
 ```js
-teamName = "Giraffes"; // What scope is this?
-var teamCity = "Sioux Falls"; // What scope is this?
+teamName = "Giraffes" // What scope is this?
+var teamCity = "Sioux Falls" // What scope is this?
 
 function playBaseball() {
-  console.log("From " + teamCity + "..."); // Does this work?
-  console.log("Welcome the " + teamName + "!"); // Does this work?
+  console.log("From " + teamCity + "...") // Does this work?
+  console.log("Welcome the " + teamName + "!") // Does this work?
 
-  pitcherName    = "Andy Whitley"; // What scope is this?
-  var batterName = "John Master"; // What scope is this?
+  pitcherName    = "Andy Whitley" // What scope is this?
+  var batterName = "John Master" // What scope is this?
 
-  console.log(batterName);  // Does this work?
-  console.log(pitcherName); // Does this work?
+  console.log(batterName)  // Does this work?
+  console.log(pitcherName) // Does this work?
 }
 
-playBaseball();
+playBaseball()
 
-console.log(teamCity); // Does this work?
-console.log(teamName);   // Does this work?
+console.log(teamCity) // Does this work?
+console.log(teamName)   // Does this work?
 
-console.log(pitcherName); // Does this work?
-console.log(batterName);  // Does this work?
+console.log(pitcherName) // Does this work?
+console.log(batterName)  // Does this work?
 ```
 
 <details>
@@ -443,11 +443,11 @@ Recall that there are two ways to declare functions in Javascript, **function de
 
 ```js
 var sayHello = function(){
-    console.log("Hello!");
+    console.log("Hello!")
 }
 
 function sayHello(){
-    console.log("Hello!");
+    console.log("Hello!")
 }
 ```
 
@@ -486,9 +486,9 @@ Variables are first **initialized**, meaning a space in memory is reserved or al
 
 
 ```js
-console.log("My name is " + firstName);
+console.log("My name is " + firstName)
 
-var firstName = "John";
+var firstName = "John"
 
 // My name is undefined
 ```
@@ -502,30 +502,30 @@ In pairs, follow the same process we did in the "We Do" earlier.
   2. Determine whether each `console.log` will error out or not.
 
 ```javascript
-var firstName = 'John'; // What scope is this?
-var lastName = 'Dowd';  // What scope is this?
-var age = 19;  // What scope is this?
+var firstName = 'John' // What scope is this?
+var lastName = 'Dowd'  // What scope is this?
+var age = 19  // What scope is this?
 
-console.log(displayPerson(firstName, lastName));  // Does this work?
-console.log(removeYears()); // Does this work?
+console.log(displayPerson(firstName, lastName))  // Does this work?
+console.log(removeYears()) // Does this work?
 
 function displayPerson(fname, lname){ // What scope are these arguments?
-  var prefix = 'Mr';  // What scope is this?
-  var fullName = null;  // What scope is this?
+  var prefix = 'Mr'  // What scope is this?
+  var fullName = null  // What scope is this?
 
   function getFullName(){
-    var suffix = "Esq.";  // What scope is this?
-    return fullName = prefix + " " + fname + " " + lname + " " + suffix;
-  };
+    var suffix = "Esq."  // What scope is this?
+    return fullName = prefix + " " + fname + " " + lname + " " + suffix
+  }
 
-  return getFullName();
-};
+  return getFullName()
+}
 
 var removeYears = function(){
   var minusYears = 10  // What scope is this?
-  var age = 49; // What scope is this?
-  return age - minusYears;
-};
+  var age = 49 // What scope is this?
+  return age - minusYears
+}
 ```
 
 ### You Do: Test Your Scope Knowledge (15 minutes / 2:30)
@@ -536,25 +536,25 @@ Answer the questions below the following code snippet. The letters in the questi
 
 ```js
 /* A */
-var username = "XxXskaterBoi2004XxX";
+var username = "XxXskaterBoi2004XxX"
 /* B */
 function logIn(){
     /* C */
-    var sessionID = "8675309";
+    var sessionID = "8675309"
     /* D */
-    return decrypt(sessionID);
+    return decrypt(sessionID)
     /* E */
     function decrypt(string){
         /* F */
-        var token = profileID;
+        var token = profileID
         /* G */
     }
     /* H */
 }
 /* I */
-logIn();
+logIn()
 /* J */
-var profileID = 4011989;
+var profileID = 4011989
 /* K */
 ```
 
@@ -606,15 +606,15 @@ One simple solution for this is to wrap each script's JavaScript code in an Imme
 ```js
 (function() {    // IIFE
 
-  var username = "XxXskaterBoi2004XxX";
+  var username = "XxXskaterBoi2004XxX"
   function logIn(){
-      var sessionID = "8675309";
-      return decrypt(sessionID);
+      var sessionID = "8675309"
+      return decrypt(sessionID)
       function decrypt(string){
           var token = profileID
   }
-  logIn();
-  var profileID = 4011989;
+  logIn()
+  var profileID = 4011989
 
 })()
 ```
