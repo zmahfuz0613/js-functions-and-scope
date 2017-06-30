@@ -19,7 +19,6 @@ Chances are, you'll be asked about it during technical interviews too.
 
 ### Scope
 - Describe scope and how it governs how data is able to be accessed in code
-- Give an example of a function declaration and a function expression
 - Describe the impact of hoisting on variable scope
 
 
