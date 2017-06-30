@@ -386,7 +386,7 @@ There are four simple rules to remember about scope in JS...
 
 > One consequence of rule 3 is that variables defined outside of any function are inherently global, even if the `var` keyword is used.
 
-![scope diagram](http://www.datchley.name/content/images/2015/08/js-es5-scope-2.png)
+![scope diagram](js-es5-scope-2.png)
 
 Another way to say this...
 
