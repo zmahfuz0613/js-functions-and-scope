@@ -201,7 +201,7 @@ function declare() {
 
 #### Arrow Functions
 
-Following the release of ECMAScript 6 (ES6) in 2016, anonymous functions can be written as "arrow functions", a syntax adapted from CoffeeScript.
+Following the release of ECMAScript 6 (ES6) in 2015, anonymous functions can be written as "arrow functions", a syntax adapted from CoffeeScript.
 ```js
 var multiply = function( num1, num2 ){  // function expression
   return num1 * num2
