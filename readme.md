@@ -48,7 +48,7 @@ Benefits of functions:
 #### Function Container
 
 ```js
-function multiply(){
+function multiply () {
 
 }
 ```
@@ -56,7 +56,7 @@ function multiply(){
 #### Input ("Arguments" or "Parameters")
 
 ```js
-function multiply( num1, num2 ){
+function multiply (num1, num2) {
 
 }
 ```
@@ -64,8 +64,8 @@ function multiply( num1, num2 ){
 #### Output and Side Effects
 
 ```js
-function multiply( num1, num2 ){
-  console.log( num1 * num2 )
+function multiply (num1, num2) {
+  console.log(num1 * num2)
   return num1 * num2
 }
 ```
@@ -81,11 +81,11 @@ function multiply( num1, num2 ){
 
 We've defined a function. Now we need to call it...
 
-**Q: Now we that we have stored that function in memory, how to do we use it?**
+**Q: Now we that we have stored that function in memory, how do we use it?**
 
 ```js
 // Call the multiply function.
-multiply( 2, 5 )
+multiply(2, 5)
 
 // What happens if we reference the function without parentheses?
 multiply
@@ -110,7 +110,7 @@ square(4)
 It should look something like this:
 
 ```js
-raisePower(4, 3)
+exponentiate(4, 3)
 => 64
 ```
 
@@ -120,16 +120,16 @@ There are two ways to define a function...
 
 #### Declaration
 
-``` javascript
-function multiply( num1, num2 ) {
+```js
+function multiply (num1, num2) {
   return num1 * num2
 }
 ```
 
 #### Expression
 
-``` javascript
-var multiply = function ( num1, num2 ) {
+```js
+var multiply = function (num1, num2) {
   return num1 * num2
 }
 ```
@@ -154,8 +154,8 @@ Conversely, function expressions **are not** hoisted, meaning you cannot call th
 
 What do you think will happen when we run the below code...
 ```js
-multiply( 3, 5 )
-var multiply = function( num1, num2 ){
+multiply(3, 5)
+var multiply = function (num1, num2){
   return num1 * num2
 }
 // function expression
@@ -164,8 +164,8 @@ var multiply = function( num1, num2 ){
 Surely the same thing will happen when we run the below code...
 
 ```js
-multiply( 3, 5 )
-function multiply( num1, num2 ) {
+multiply(3, 5)
+function multiply (num1, num2) {
   return num1 * num2
 }
 // function declaration
@@ -177,23 +177,23 @@ Knowing this, what will happen each time we call `express` and `declare` in the 
 ```js
 express()        // What happens when we run this function at this point in the code?
 
-var express = function() {
-    console.log('Function expression called.')
+var express = function () {
+  console.log('Function expression called.')
 }
 ```
 
 What changes when we run?
 
 ```js
-var express = function() {
-    console.log('Function expression called.')
+var express = function () {
+  console.log('Function expression called.')
 }
 
 declare()        // ???
 express()        // ???
 
-function declare() {
-    console.log('Function declaration called.')
+function declare () {
+  console.log('Function declaration called.')
 }
 ```
 
@@ -203,11 +203,11 @@ function declare() {
 
 Following the release of ECMAScript 6 (ES6) in 2015, anonymous functions can be written as "arrow functions", a syntax adapted from CoffeeScript.
 ```js
-var multiply = function( num1, num2 ){  // function expression
+var multiply = function (num1, num2){  // function expression
   return num1 * num2
 }
 
-multiply( 3, 5 )
+multiply(3, 5)
 ```
 
 What does this look like in ES6?
@@ -236,7 +236,7 @@ const multiply = (num1, num2) => (
 A second feature introduced by ES6 was optional function parameters. Optional parameters allow us to define parameters that will default to some pre-determined value if the function is called without passing them in. We can set optional parameters in a function definition by assigning a value to the parameter definition.
 
 ```js
-function exponentiate(base, exponent = 2) {
+function exponentiate (base, exponent = 2) {
   return base ** exponent
 }
 
@@ -255,76 +255,94 @@ What is alerted in each case? Write down your answer before running the code.
 
 1.
 ```js
-function foo(){
-  function bar() {
-      return 3
+function foo () {
+  function bar () {
+    return 3
   }
+
   return bar()
-  function bar() {
-      return 8
+
+  function bar () {
+    return 8
   }
 }
+
 alert(foo())
 ```
 2.
 ```js
-function foo(){
-  var bar = function() {
-      return 3
+function foo () {
+  var bar = function () {
+    return 3
   }
+
   return bar()
-  var bar = function() {
-      return 8
+
+  var bar = function () {
+    return 8
   }
 }
+
 alert(foo())
 ```
 
 3.
 ```js
-function foo(){
+function foo () {
   return bar()
-  var bar = function() {
-      return 3
+
+  var bar = function () {
+    return 3
   }
-  var bar = function() {
-      return 8
+
+  var bar = function () {
+    return 8
   }
 }
+
 alert(foo())
 ```
 
 4.
 ```js
-function foo(){
+function foo () {
   var bar = () => {
-      return 3
+    return 3
   }
+
   return bar()
+
   var bar = () => {
-      return 8
+    return 8
   }
 }
+
 alert(foo())
 ```
 
 5.
 ```js
-function foo(){
+function foo () {
   var bar = () => 3
+
   return bar()
+
   var bar = () => 8
 }
+
 alert(foo())
 ```
 
 6.
 ```js
-function foo(){
+function foo () {
   var bar = () => { 3 }
+
   return bar()
+
   var bar = () => { 8 }
 }
+
 alert(foo())
 ```
 > NOTE: For an arrow function to have implicit return, it **cannot** have a block body enclosed with brackets `{` `}`
@@ -353,7 +371,7 @@ alert(foo())
 Here's a code snippet that demonstrates some of Javascript's fundamental rules of scope...
 
 ```js
-function getColor() {
+function getColor () {
   color = "red"
 }
 
@@ -364,7 +382,7 @@ console.log(color) // What should we see in the console?
 Let's see what happens if we add the `var` keyword...
 
 ```js
-function getAnotherColor() {
+function getAnotherColor () {
   var anotherColor = "green"
 }
 
@@ -402,12 +420,12 @@ Let's walk through this example in two steps...
 teamName = "Giraffes" // What scope is this?
 var teamCity = "Sioux Falls" // What scope is this?
 
-function playBaseball() {
+function playBaseball () {
   console.log("From " + teamCity + "...") // Does this work?
   console.log("Welcome the " + teamName + "!") // Does this work?
 
   pitcherName    = "Andy Whitley" // What scope is this?
-  var batterName = "John Master" // What scope is this?
+  var batterName = "Perry Fustero" // What scope is this?
 
   console.log(batterName)  // Does this work?
   console.log(pitcherName) // Does this work?
@@ -441,11 +459,11 @@ A Javascript feature that may impact scope is **hoisting**. This applies to Java
 Recall that there are two ways to declare functions in Javascript, **function declarations** and **function expressions**.
 
 ```js
-var sayHello = function(){
+var sayHello = function () {
     console.log("Hello!")
 }
 
-function sayHello(){
+function sayHello () {
     console.log("Hello!")
 }
 ```
@@ -457,8 +475,8 @@ function sayHello(){
     Which is a function declaration? Which is a function expression?
   </summary>
 
-  - `var sayHello = function(){}` is a function expression.  
-  - `function sayHello(){}` is a function declaration.
+  - `var sayHello = function () {}` is a function expression.  
+  - `function sayHello () {}` is a function declaration.
 
 </details>
 
@@ -508,11 +526,11 @@ var age = 19  // What scope is this?
 console.log(displayPerson(firstName, lastName))  // Does this work?
 console.log(removeYears()) // Does this work?
 
-function displayPerson(fname, lname){ // What scope are these arguments?
+function displayPerson (fname, lname) { // What scope are these arguments?
   var prefix = 'Mr'  // What scope is this?
   var fullName = null  // What scope is this?
 
-  function getFullName(){
+  function getFullName () {
     var suffix = "Esq."  // What scope is this?
     return fullName = prefix + " " + fname + " " + lname + " " + suffix
   }
@@ -520,7 +538,7 @@ function displayPerson(fname, lname){ // What scope are these arguments?
   return getFullName()
 }
 
-var removeYears = function(){
+var removeYears = function () {
   var minusYears = 10  // What scope is this?
   var age = 49 // What scope is this?
   return age - minusYears
@@ -537,13 +555,13 @@ Answer the questions below the following code snippet. The letters in the questi
 /* A */
 var username = "XxXskaterBoi2004XxX"
 /* B */
-function logIn(){
+function logIn () {
     /* C */
     var sessionID = "8675309"
     /* D */
     return decrypt(sessionID)
     /* E */
-    function decrypt(string){
+    function decrypt (string) {
         /* F */
         var token = profileID
         /* G */
@@ -603,17 +621,23 @@ When you are working on larger, more complex applications (particularly ones wit
 One simple solution for this is to wrap each script's JavaScript code in an Immediately-Invoked Function Expression (IIFE). An IIFE is a function that, when loaded into the browser, immediately invokes itself and thereby creates a new local scope to enclose all variables within it.
 
 ```js
-(function() {    // IIFE
+(function () {    // IIFE
 
   var username = "XxXskaterBoi2004XxX"
-  function logIn(){
-      var sessionID = "8675309"
-      return decrypt(sessionID)
-      function decrypt(string){
-          var token = profileID
-  }
-  logIn()
   var profileID = 4011989
+
+  function logIn () {
+    var sessionID = "8675309"
+    var token
+    return decrypt(sessionID)
+
+    function decrypt (string) {
+      var token = profileID
+    }
+    return token
+  }
+
+  logIn()
 
 })()
 ```
