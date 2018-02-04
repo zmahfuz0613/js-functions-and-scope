@@ -1,5 +1,7 @@
 # Functions and Scope
 
+## Framing (10 min / 10:10)
+
 We've learned a lot of things that are fundamental to programming, such as primitive and complex data types, conditionals, and loops. However, we still need a way to encapsulate logic and make it reusable (make our code more DRY). Functions are a fundamental part of JavaScript that allow us to contain all of the logic of a particular operation within a named entity that can be activated, or "called", repeatedly from other parts of our code.
 
 One feature of functions in JavaScript is that each function creates a new "scope" when it is defined. Scope defines what variables and functions are accessible at any given point in the execution of your code. Understanding scope in JavaScript is key to writing bulletproof code and being a better developer.
@@ -28,7 +30,7 @@ Chances are, you'll be asked about it during technical interviews too.
 **What is a Function?**
 
 * Fundamental component of JavaScript
-* A reusable block of JavaScript code
+* A reusable block of JavaScript code used to perform a task
 * Simply put, a function is a block of code that takes an input, processes that input and then produces some form of output
 
 ---
@@ -41,7 +43,7 @@ Benefits of functions:
 
 ---
 
-### Recognize the Parts (5 minutes / 0:15)
+### Recognize the Parts (10 min / 10:20)
 
 **What are the components of a function?**
 
@@ -65,11 +67,11 @@ function multiply (num1, num2) {
 
 ```js
 function multiply (num1, num2) {
-  console.log(num1 * num2)
-  return num1 * num2
+  console.log(num1 * num2) // Side Effect
+  return num1 * num2 // Output
 }
 ```
-* Output: What the function returns (evaluates to)
+* Output: What the function evaluates to - noted by keyword `return`
 * Side Effects: Effects the function has on data outside of itself (external to its scope)
 
 **Q: Does a function need an input, output and/or side effects to work?**
@@ -77,7 +79,7 @@ function multiply (num1, num2) {
 > Short answer: No, a function may have any combination of these.  
 > Note: If you don't specify an return value, it will return `undefined`.
 
-### Calling and Referencing a Function (5 minutes / 0:20)
+#### Calling and Referencing a Function 
 
 We've defined a function. Now we need to call it...
 
@@ -87,11 +89,11 @@ We've defined a function. Now we need to call it...
 // Call the multiply function.
 multiply(2, 5)
 
-// What happens if we reference the function without parentheses?
+// Reference the function.  What happens if we reference the function without parentheses?
 multiply
 ```
 
-### You do - Create a Function (5 minutes / 0:25)
+### You do - Create a Function (5 min / 10:25)
 It would be really nice if there was a function that did exponents for us. Create a `square` function, it should:
 
 - Take an argument that is a number
@@ -114,7 +116,7 @@ exponentiate(4, 3)
 => 64
 ```
 
-### Function Declarations and Expressions (10 minutes / 0:35)
+### Function Declarations and Expressions (10 min / 10:35)
 
 There are two ways to define a function...
 
@@ -146,7 +148,7 @@ Both do the same thing and run the same chunk of code but they are different.
 
 While we call/reference functions defined through declarations and expressions the same way, they do have a subtle but important difference...
 
-### Hoisting (10 minutes / 0:45)
+### Hoisting (10 min / 10:45)
 
 Function declarations are processed before any code is executed, meaning you can call functions before they are declared in the flow of your code. This behavior is known as **hoisting**.
 
@@ -182,7 +184,7 @@ var express = function () {
 }
 ```
 
-What changes when we run?
+What about when we run this example?
 
 ```js
 var express = function () {
@@ -197,7 +199,9 @@ function declare () {
 }
 ```
 
-### ES6 Features (10 minutes / 0:55)
+You can read more about hoisting [here](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
+
+### ES6 Features (10 min / 10:55)
 
 #### Arrow Functions
 
@@ -206,8 +210,6 @@ Following the release of ECMAScript 6 (ES6) in 2015, anonymous functions can be 
 var multiply = function (num1, num2){  // function expression
   return num1 * num2
 }
-
-multiply(3, 5)
 ```
 
 What does this look like in ES6?
@@ -248,7 +250,7 @@ exponentiate(4)
 ```
 > Optional parameters are very useful when writing **recursive** functions as they allow values to more easily be passed through multiple function calls
 
-## Exercise: Fun with Functions Quiz (15 minutes / 1:10)
+## Exercise: Fun with Functions Quiz (15 min / 11:10)
 > 10 minutes exercise, 5 minutes review
 
 What is alerted in each case? Write down your answer before running the code.
@@ -347,16 +349,27 @@ alert(foo())
 ```
 > NOTE: For an arrow function to have implicit return, it **cannot** have a block body enclosed with brackets `{` `}`
 
+<details>
+  <summary><em>Answers, try not to peak!</em></summary>
+  <p>1.) 8 - 2nd function declaration of `bar` replaces the 1st because of hoisting</p>
+  <p>2.) 3 - 1st function expression of `bar` is what is called.  2nd definition is not hoisted</p>
+  <p>3.) TypeError - `bar` is called before it is defined by expressions.  Nothing is hoisted</p>
+  <p>4.) 3 - Arrow functions count as expressions.  Nothing is hoisted, 1st definition wins.</p>
+  <p>5.) 3 - Same as #4, just shorter syntax.</p> 
+  <p>6.) Undefined - No return value given, no implicit return.</p>
+</details>
+
+--- 
+
 **Hungry for More?**
+> Grab a Snickers || Try implementing [FizzBuzz](https://github.com/ga-wdi-exercises/fizzBuzz_redux) with Functions!
 
-> Grab a Snickers || Try implementing [fizzBuzz](https://github.com/ga-wdi-exercises/fizzBuzz_redux) with Functions!
-
-### Break (10 minutes / 1:20)
+### Break (10 min / 11:20)
 
 
 ## Scope
 
-### What Is Scope? (15 minutes / 1:35)
+### What Is Scope? (15 min / 11:35)
 
 **In real life:** Your "scope" is what your eyes can see from wherever you're standing.
 
@@ -410,7 +423,7 @@ Another way to say this...
 * **Local variables** defined inside a function cannot be accessed from anywhere outside of the function, because the variable is defined only within the scope of the function.
 * However, a function can access all variables and functions defined inside the scope in which it is defined (which includes all outer scopes).
 
-### We Do: A More Complex Example (15 minutes / 1:50)
+### We Do: A More Complex Example (15 min / 11:50)
 
 Let's walk through this example in two steps...
   1. Identify and diagram the scope of each variable.  
@@ -424,8 +437,8 @@ function playBaseball () {
   console.log("From " + teamCity + "...") // Does this work?
   console.log("Welcome the " + teamName + "!") // Does this work?
 
-  pitcherName    = "Andy Whitley" // What scope is this?
-  var batterName = "Perry Fustero" // What scope is this?
+  pitcherName    = "Meg" // What scope is this?
+  var batterName = "Perry" // What scope is this?
 
   console.log(batterName)  // Does this work?
   console.log(pitcherName) // Does this work?
@@ -450,7 +463,7 @@ console.log(batterName)  // Does this work?
 
 </details>
 
-### Hoisting (10 minutes / 2:00)
+### More on Hoisting (10 min / 12:00)
 
 #### Functions
 
@@ -485,14 +498,11 @@ function sayHello () {
     How does a function declaration differ from a function expression?
   </summary>
 
-  - A function expression follows the same rules as variable assignment. Since the value of the reference is a function, that function is only available in the lines after the value assignment.
+  - A function expression follows the same rules as variable assignment. Since the value of the reference is a function, that function is only available after the assignment.
   - With a function declaration, no matter where you put it in your code, it behaves as if you wrote it as the very first line in your code.
   - Aside from that, they are functionally equivalent.
 
 </details>
-
-
-
 
 
 #### Variables
@@ -510,7 +520,7 @@ var firstName = "John"
 // My name is undefined
 ```
 
-### You Do: An Even More Complex Example (15 minutes / 2:15)
+### You Do: An Even More Complex Example (15 min / 2:15)
 
 > 10 minutes exercise. 5 minutes review.
 
@@ -545,7 +555,7 @@ var removeYears = function () {
 }
 ```
 
-### You Do: Test Your Scope Knowledge (15 minutes / 2:30)
+### You Do: Test Your Scope Knowledge (15 min / 2:30)
 
 > 10 minutes exercise. 5 minutes review.
 
@@ -580,22 +590,22 @@ var profileID = 4011989
     - A and B
     - All lines
     - All lines except A
-1. The variable `profileID` **has a value** on which lines?
+2. The variable `profileID` **has a value** on which lines?
     - A, B, I, J, K
     - K
     - All lines
     - All lines except A
-1. The variable `profileID` **is accessible** on which lines? (That is: on which lines can it be `console.log`ged without throwing an error?)
+3. The variable `profileID` **is accessible** on which lines? (That is: on which lines can it be `console.log`ged without throwing an error?)
     - A, B, I, J, K
     - K
     - All lines
     - All lines except A
-1. The variable `sessionID` **is accessible** on which lines?
+4. The variable `sessionID` **is accessible** on which lines?
     - C, D, E, F, G, H
     - C, D, E, H
     - All lines
     - All lines except F and G
-1. The function `decrypt` **is accessible** on which lines?
+5. The function `decrypt` **is accessible** on which lines?
     - C, D, E, F, G, H
     - C, D, E, H
     - All lines
@@ -606,13 +616,23 @@ var profileID = 4011989
   <summary><strong>When you've finished...</strong></summary>
 
   1. All lines except A. The variable is available on all lines due to hoisting, but it only has a value after `username =`
-  1. K. The variable is available on all lines due to hoisting, but it only has a value after `profileID =`
-  1. All lines.
-  1. C, D, E, F, G, H
-  1. C, D, E, F, G, H
+  2. K. The variable is available on all lines due to hoisting, but it only has a value after `profileID =`
+  3. All lines.
+  4. C, D, E, F, G, H
+  5. C, D, E, F, G, H
 
 </details>
 
+## Review Questions (Rest of Class)
+
+1. What is a functions in javascript and how can they be useful?
+2. How is a side effect different from an output? 
+3. What is the difference between calling and referencing a function?
+4. How is a function declaration different than a function expression? 
+5. Explain the difference between local and global scope.
+6. Explain how hoisting can affect functions.
+7. Explain how hoisting can affect variables.  
+8. What does DRY mean?
 
 ### Bonus: Immediately-Invoked Function Expressions
 
@@ -643,11 +663,6 @@ One simple solution for this is to wrap each script's JavaScript code in an Imme
 ```
 > NOTE: Using an IIFE would prevent you from being able to access variables and functions within it from the console. Therefore, for now, you should refrain from using it
 -------
-
-## Sample Quiz Questions
-
-1. Describe the rules of scope in JS.
-2. Write an example program that tries to access a variable out of scope.
 
 ## References
 
