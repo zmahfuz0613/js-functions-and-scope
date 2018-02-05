@@ -4,9 +4,9 @@
 
 We've learned a lot of things that are fundamental to programming, such as primitive and complex data types, conditionals, and loops. However, we still need a way to encapsulate logic and make it reusable (make our code more DRY). Functions are a fundamental part of JavaScript that allow us to contain all of the logic of a particular operation within a named entity that can be activated, or "called", repeatedly from other parts of our code.
 
-One feature of functions in JavaScript is that each function creates a new "scope" when it is defined. Scope defines what variables and functions are accessible at any given point in the execution of your code. Understanding scope in JavaScript is key to writing bulletproof code and being a better developer.
+One feature of functions in JavaScript is that each function creates a new "scope" when it is defined. Scope defines what variables and functions are accessible at any given point in the execution of your code. Understanding scope in JavaScript is key to writing well structured code and being a better developer.
 
-Chances are, you'll be asked about it during technical interviews too.
+There's a good chance you'll be asked about scope during technical interviews too.
 
 
 ## Learning Objectives
@@ -364,7 +364,7 @@ alert(foo())
 **Hungry for More?**
 > Grab a Snickers || Try implementing [FizzBuzz](https://github.com/ga-wdi-exercises/fizzBuzz_redux) with Functions!
 
-### Break (10 min / 11:20)
+## Break (10 min / 11:20)
 
 
 ## Scope
@@ -520,7 +520,7 @@ var firstName = "John"
 // My name is undefined
 ```
 
-### You Do: An Even More Complex Example (15 min / 2:15)
+### You Do: An Even More Complex Example (15 min / 12:15)
 
 > 10 minutes exercise. 5 minutes review.
 
@@ -555,7 +555,7 @@ var removeYears = function () {
 }
 ```
 
-### You Do: Test Your Scope Knowledge (15 min / 2:30)
+### You Do: Test Your Scope Knowledge (15 min / 12:30)
 
 > 10 minutes exercise. 5 minutes review.
 
