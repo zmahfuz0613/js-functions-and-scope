@@ -362,7 +362,7 @@ alert(foo())
 --- 
 
 **Hungry for More?**
-> Grab a Snickers || Try implementing [FizzBuzz](https://github.com/ga-wdi-exercises/fizzBuzz_redux) with Functions!
+> Grab a Snickers || Try implementing [FizzBuzz](https://git.generalassemb.ly/dc-wdi-fundamentals/fizzbuzz) with Functions!
 
 ## Break (10 min / 11:20)
 
