@@ -1,6 +1,6 @@
 # Functions and Scope
 
-## Framing (10 min / 10:10)
+## Framing (10 min / 0:10)
 
 We've learned a lot of things that are fundamental to programming, such as primitive and complex data types, conditionals, and loops. However, we still need a way to encapsulate logic and make it reusable (make our code more DRY). Functions are a fundamental part of JavaScript that allow us to contain all of the logic of a particular operation within a named entity that can be activated, or "called", repeatedly from other parts of our code.
 
@@ -23,8 +23,6 @@ There's a good chance you'll be asked about scope during technical interviews to
 - Describe scope and how it governs how data is able to be accessed in code
 - Describe the impact of hoisting on variable scope
 
-
-
 ## Functions
 
 **What is a Function?**
@@ -36,6 +34,7 @@ There's a good chance you'll be asked about scope during technical interviews to
 ---
 
 **Why do we use functions?**
+
 Benefits of functions:
 * Reusability
 * DRYness
@@ -43,7 +42,7 @@ Benefits of functions:
 
 ---
 
-### Recognize the Parts (10 min / 10:20)
+### Recognize the Parts (10 min / 0:20)
 
 **What are the components of a function?**
 
@@ -55,45 +54,59 @@ function multiply () {
 }
 ```
 
-#### Input ("Arguments" or "Parameters")
+#### Input Parameters (or Arguments)
 
 ```js
 function multiply (num1, num2) {
-
+  // now you have two variables you can access
+  // num1 and num2
 }
 ```
+
+> When we declare a function that takes input values, we call these values parameters.
+
+> Conversely, when we _call_ a function and pass values into it, those values are called arguments.
+
+> These terms are often used interchangeably, which is okay. But knowing the difference can come in handy.
 
 #### Output and Side Effects
 
 ```js
 function multiply (num1, num2) {
-  console.log(num1 * num2) // Side Effect
   return num1 * num2 // Output
 }
 ```
 * Output: What the function evaluates to - noted by keyword `return`
+
+> If a function returns a value, you can store that value in a variable.
+
+```js
+let num2 = 5;
+
+function multiply(num1) {
+  num2 = num1 * num2; // side effect
+}
+```
 * Side Effects: Effects the function has on data outside of itself (external to its scope)
 
 **Q: Does a function need an input, output and/or side effects to work?**
 
 > Short answer: No, a function may have any combination of these.  
-> Note: If you don't specify an return value, it will return `undefined`.
+> Note: If you don't specify a return value, it will return `undefined`.
 
 #### Calling and Referencing a Function 
 
 We've defined a function. Now we need to call it...
 
-**Q: Now we that we have stored that function in memory, how do we use it?**
-
 ```js
-// Call the multiply function.
+// Call the multiply function, passing 2 arguments in
 multiply(2, 5)
 
-// Reference the function.  What happens if we reference the function without parentheses?
+// Reference the function. What happens if we reference the function without parentheses?
 multiply
 ```
 
-### You do - Create a Function (5 min / 10:25)
+### You do - Create a Function (5 min / 0:25)
 It would be really nice if there was a function that did exponents for us. Create a `square` function, it should:
 
 - Take an argument that is a number
@@ -102,6 +115,8 @@ It would be really nice if there was a function that did exponents for us. Creat
 ```js
 square(4)
 => 16
+square(6)
+=> 36
 ```
 
 **Bonus - Create an exponents function**
@@ -116,7 +131,7 @@ exponentiate(4, 3)
 => 64
 ```
 
-### Function Declarations and Expressions (10 min / 10:35)
+### Function Declarations and Expressions (10 min / 0:35)
 
 There are two ways to define a function...
 
@@ -138,6 +153,12 @@ var multiply = function (num1, num2) {
 
 #### Declarations vs. Expressions
 
+Calling them is the same regardless of how they're declared.
+
+```js
+multiply(2,5)
+```
+
 Both do the same thing and run the same chunk of code but they are different.
 
 **Q. What differences do you notice?**
@@ -145,10 +166,9 @@ Both do the same thing and run the same chunk of code but they are different.
 - **Function declarations** define functions without assigning them to variables.
 - **Function expressions** assign *anonymous functions* to variables.
 
-
 While we call/reference functions defined through declarations and expressions the same way, they do have a subtle but important difference...
 
-### Hoisting (10 min / 10:45)
+### Hoisting (10 min / 0:45)
 
 Function declarations are processed before any code is executed, meaning you can call functions before they are declared in the flow of your code. This behavior is known as **hoisting**.
 
@@ -201,7 +221,7 @@ function declare () {
 
 You can read more about hoisting [here](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
 
-### ES6 Features (10 min / 10:55)
+### ES6 Features (10 min / 0:55)
 
 #### Arrow Functions
 
@@ -250,7 +270,7 @@ exponentiate(4)
 ```
 > Optional parameters are very useful when writing **recursive** functions as they allow values to more easily be passed through multiple function calls
 
-## Exercise: Fun with Functions Quiz (15 min / 11:10)
+## Exercise: Fun with Functions Quiz (15 min / 1:10)
 > 10 minutes exercise, 5 minutes review
 
 What is alerted in each case? Write down your answer before running the code.
@@ -350,10 +370,10 @@ alert(foo())
 > NOTE: For an arrow function to have implicit return, it **cannot** have a block body enclosed with brackets `{` `}`
 
 <details>
-  <summary><em>Answers, try not to peak!</em></summary>
+  <summary><em>Answers, try not to peek!</em></summary>
   <p>1.) 8 - 2nd function declaration of `bar` replaces the 1st because of hoisting</p>
   <p>2.) 3 - 1st function expression of `bar` is what is called.  2nd definition is not hoisted</p>
-  <p>3.) TypeError - `bar` is called before it is defined by expressions.  Nothing is hoisted</p>
+  <p>3.) `bar` is not a function. bar is called before it is defined. Nothing is hoisted</p>
   <p>4.) 3 - Arrow functions count as expressions.  Nothing is hoisted, 1st definition wins.</p>
   <p>5.) 3 - Same as #4, just shorter syntax.</p> 
   <p>6.) Undefined - No return value given, no implicit return.</p>
@@ -364,12 +384,11 @@ alert(foo())
 **Hungry for More?**
 > Grab a Snickers || Try implementing [FizzBuzz](https://git.generalassemb.ly/dc-wdi-fundamentals/fizzbuzz) with Functions!
 
-## Break (10 min / 11:20)
-
+## Break (10 min / 1:20)
 
 ## Scope
 
-### What Is Scope? (15 min / 11:35)
+### What Is Scope? (15 min / 1:35)
 
 **In real life:** Your "scope" is what your eyes can see from wherever you're standing.
 
@@ -423,7 +442,7 @@ Another way to say this...
 * **Local variables** defined inside a function cannot be accessed from anywhere outside of the function, because the variable is defined only within the scope of the function.
 * However, a function can access all variables and functions defined inside the scope in which it is defined (which includes all outer scopes).
 
-### We Do: A More Complex Example (15 min / 11:50)
+### We Do: A More Complex Example (15 min / 1:50)
 
 Let's walk through this example in two steps...
   1. Identify and diagram the scope of each variable.  
@@ -463,7 +482,7 @@ console.log(batterName)  // Does this work?
 
 </details>
 
-### More on Hoisting (10 min / 12:00)
+### More on Hoisting (10 min / 2:00)
 
 #### Functions
 
@@ -517,10 +536,10 @@ console.log("My name is " + firstName)
 
 var firstName = "John"
 
-// My name is undefined
+// My name is undefined, but it is a variable
 ```
 
-### You Do: An Even More Complex Example (15 min / 12:15)
+### You Do: An Even More Complex Example (15 min / 2:15)
 
 > 10 minutes exercise. 5 minutes review.
 
@@ -536,7 +555,7 @@ var age = 19  // What scope is this?
 console.log(displayPerson(firstName, lastName))  // Does this work?
 console.log(removeYears()) // Does this work?
 
-function displayPerson (fname, lname) { // What scope are these arguments?
+function displayPerson (fname, lname) { // What scope are these parameters?
   var prefix = 'Mr'  // What scope is this?
   var fullName = null  // What scope is this?
 
@@ -555,7 +574,64 @@ var removeYears = function () {
 }
 ```
 
-### You Do: Test Your Scope Knowledge (15 min / 12:30)
+### You do: Write your own (15 min / 2:30)
+
+> 10 minute exercise. 5 minute review
+
+Write a small piece of code that meets the following requirements. Identify and put a comment next to each variable identifying its scope.
+
+* Has a global variable
+* Has at least 1 variable in each function
+* Has at least 1 function with parameters
+* The function with parameters should modify that input and return something new
+
+Some ideas for inspiration:
+* Name scrambler (takes a string name input and modifies it in some way)
+* Take two numbers and return the square root of the difference
+
+### Bonus: Immediately-Invoked Function Expressions
+
+When you are working on larger, more complex applications (particularly ones with multiple linked scripts), the use of global variables can cause trouble. Since all global variables are defined on the `window` object, declaring too many global variables (commonly called "polluting the global namespace") increases the risk of variables overwriting each other and thereby causing errors.
+
+One simple solution for this is to wrap each script's JavaScript code in an Immediately-Invoked Function Expression (IIFE). An IIFE is a function that, when loaded into the browser, immediately invokes itself and thereby creates a new local scope to enclose all variables within it.
+
+```js
+(function () {    // IIFE
+
+  var username = "XxXskaterBoi2004XxX"
+  var profileID = 4011989
+
+  function logIn () {
+    var sessionID = "8675309"
+    var token
+    return decrypt(sessionID)
+
+    function decrypt (string) {
+      var token = profileID
+    }
+    return token
+  }
+
+  logIn()
+
+})()
+```
+> NOTE: Using an IIFE would prevent you from being able to access variables and functions within it from the console. Therefore, for now, you should refrain from using it.
+-------
+
+## Review Questions
+
+1. What is a functions in javascript and how can they be useful?
+2. How is a side effect different from an output? 
+3. What is the difference between calling and referencing a function?
+4. How is a function declaration different than a function expression? 
+5. Explain the difference between local and global scope.
+6. Explain how hoisting can affect functions.
+7. Explain how hoisting can affect variables.  
+8. What does DRY mean?
+
+
+## Bonus: Test Your Scope Knowledge
 
 > 10 minutes exercise. 5 minutes review.
 
@@ -622,47 +698,6 @@ var profileID = 4011989
   5. C, D, E, F, G, H
 
 </details>
-
-## Review Questions (Rest of Class)
-
-1. What is a functions in javascript and how can they be useful?
-2. How is a side effect different from an output? 
-3. What is the difference between calling and referencing a function?
-4. How is a function declaration different than a function expression? 
-5. Explain the difference between local and global scope.
-6. Explain how hoisting can affect functions.
-7. Explain how hoisting can affect variables.  
-8. What does DRY mean?
-
-### Bonus: Immediately-Invoked Function Expressions
-
-When you are working on larger, more complex applications (particularly ones with multiple linked scripts), the use of global variables can cause trouble. Since all global variables are defined on the `window` object, declaring too many global variables (commonly called "polluting the global namespace") increases the risk of variables overwriting each other and thereby causing errors.
-
-One simple solution for this is to wrap each script's JavaScript code in an Immediately-Invoked Function Expression (IIFE). An IIFE is a function that, when loaded into the browser, immediately invokes itself and thereby creates a new local scope to enclose all variables within it.
-
-```js
-(function () {    // IIFE
-
-  var username = "XxXskaterBoi2004XxX"
-  var profileID = 4011989
-
-  function logIn () {
-    var sessionID = "8675309"
-    var token
-    return decrypt(sessionID)
-
-    function decrypt (string) {
-      var token = profileID
-    }
-    return token
-  }
-
-  logIn()
-
-})()
-```
-> NOTE: Using an IIFE would prevent you from being able to access variables and functions within it from the console. Therefore, for now, you should refrain from using it
--------
 
 ## References
 
