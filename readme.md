@@ -1,13 +1,12 @@
 # Functions and Scope
 
-## Framing (10 min / 0:10)
+## Framing (5 min / 0:05)
 
 We've learned a lot of things that are fundamental to programming, such as primitive and complex data types, conditionals, and loops. However, we still need a way to encapsulate logic and make it reusable (make our code more DRY). Functions are a fundamental part of JavaScript that allow us to contain all of the logic of a particular operation within a named entity that can be activated, or "called", repeatedly from other parts of our code.
 
 One feature of functions in JavaScript is that each function creates a new "scope" when it is defined. Scope defines what variables and functions are accessible at any given point in the execution of your code. Understanding scope in JavaScript is key to writing well structured code and being a better developer.
 
 There's a good chance you'll be asked about scope during technical interviews too.
-
 
 ## Learning Objectives
 
@@ -21,7 +20,6 @@ There's a good chance you'll be asked about scope during technical interviews to
 
 ### Scope
 - Describe scope and how it governs how data is able to be accessed in code
-- Describe the impact of hoisting on variable scope
 
 ## Functions
 
@@ -42,7 +40,7 @@ Benefits of functions:
 
 ---
 
-### Recognize the Parts (10 min / 0:20)
+### Recognize the Parts (20 min / 0:25)
 
 **What are the components of a function?**
 
@@ -69,6 +67,23 @@ function multiply (num1, num2) {
 
 > These terms are often used interchangeably, which is okay. But knowing the difference can come in handy.
 
+#### Default/Optional Parameters
+
+Default parameters were introduced in ES6. They allow us to define parameters that will default to some pre-determined value if the function is called without passing them in. We can set optional parameters in a function definition by assigning a value to the parameter definition.
+
+```js
+function exponentiate (base, exponent = 2) {
+  return base ** exponent
+}
+
+exponentiate(4, 3)
+=> 64
+
+exponentiate(4)
+=> 16
+```
+> Optional parameters are very useful when writing **recursive** functions as they allow values to more easily be passed through multiple function calls
+
 #### Output and Side Effects
 
 ```js
@@ -89,49 +104,76 @@ function multiply(num1) {
 ```
 * Side Effects: Effects the function has on data outside of itself (external to its scope)
 
-**Q: Does a function need an input, output and/or side effects to work?**
-
-> Short answer: No, a function may have any combination of these.  
 > Note: If you don't specify a return value, it will return `undefined`.
 
-#### Calling and Referencing a Function 
+#### More on returns
 
-We've defined a function. Now we need to call it...
+Understanding what `return` means in a function can be a little tricky.
+
+Here are two similar code snippets - can you explain what the difference is?
 
 ```js
-// Call the multiply function, passing 2 arguments in
+const splitMe = "I am the eggman I am the walrus"
+
+function splitString(str) {
+  return str.split(" ")
+}
+
+const newString = splitString(splitMe)
+
+console.log(newString)
+```
+
+```js
+const splitMe = "I am the eggman I am the walrus"
+
+function splitString() {
+  splitMe.split(" ")
+}
+
+splitString()
+
+console.log(splitMe)
+```
+
+What does the first one do? What does the second one do?
+
+Are there advantages to doing it the first way? What about the second way? Which one seems easier to understand?
+
+### You do: Write some functions (15 min / 0:40)
+
+Open your code editor and spend 15 minutes writing some code and getting a feel for functions. Try and work through all of these, but at the very least do 1 from each category.
+
+These functions should all return something. Each should:
+* Take a string as an input and reverse it and return it
+* Take a number as a parameter and return itself squared.
+* Have 3 optional parameters, all numbers. Add all the numbers together. If the function is called without passing any numbers in, simply return 10.
+* Take a number and add some amount of zeroes to the end, returning it (make sure you return a number, not a string)
+* return a function (yes you can write functions inside functions!)
+
+Also, write some functions with side effects.
+* Declare a variable, assigning a string to it. Then write a function that modifies that string without returning anything.
+* Declare a variable, assigning an array to it. Then write a function that removes the first item from the array.
+
+Lastly: 
+* Write two functions that do the same thing, but one returns the value and the other modifies a variable with side effects. 
+  * The functions should both add the string "flabbergasted" on to the end of an array
+
+### Calling vs Referencing a Function 
+
+Let's say we've defined a function. Now we need to call it...
+
+```js
+// Call a function, passing 2 arguments in
 multiply(2, 5)
 
 // Reference the function. What happens if we reference the function without parentheses?
 multiply
 ```
 
-### You do - Create a Function (5 min / 0:25)
-It would be really nice if there was a function that did exponents for us. Create a `square` function, it should:
+> When you pass a function into another function as a parameter, do you call it or reference it?
 
-- Take an argument that is a number
-- The function's output should return the number squared
-
-```js
-square(4)
-=> 16
-square(6)
-=> 36
-```
-
-**Bonus - Create an exponents function**
-- it should take 2 arguments
-  - the first should be the base number
-  - the second should be the power you'd like to raise the base number to
-
-It should look something like this:
-
-```js
-exponentiate(4, 3)
-=> 64
-```
-
-### Function Declarations and Expressions (10 min / 0:35)
+### Function Declarations and Expressions (10 min / 0:50)
 
 There are two ways to define a function...
 
@@ -161,14 +203,14 @@ multiply(2,5)
 
 Both do the same thing and run the same chunk of code but they are different.
 
-**Q. What differences do you notice?**
+**What differences do you notice?**
 
 - **Function declarations** define functions without assigning them to variables.
 - **Function expressions** assign *anonymous functions* to variables.
 
 While we call/reference functions defined through declarations and expressions the same way, they do have a subtle but important difference...
 
-### Hoisting (10 min / 0:45)
+### Hoisting (10 min / 1:00)
 
 Function declarations are processed before any code is executed, meaning you can call functions before they are declared in the flow of your code. This behavior is known as **hoisting**.
 
@@ -221,7 +263,7 @@ function declare () {
 
 You can read more about hoisting [here](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
 
-### ES6 Features (10 min / 0:55)
+### ES6 Features (10 min / 1:10)
 
 #### Arrow Functions
 
@@ -244,145 +286,15 @@ Or, to simplify it further..
 ```js
 const multiply = (num1, num2) => num1 * num2
 ```
-Arrow functions with a "concise" function body (no brackets and on one line) have "implicit return" (no return statement necessary)
+Arrow functions with a "concise" function body (no brackets and on one line) have "implicit return". This means you can leave out the `return` keyword and it still returns.
 
-However, this single line return can be faked with parentheses
+However, this single line return can be faked with parentheses (NOT CURLY BRACKETS!)
+
 ```js
 const multiply = (num1, num2) => (
   num1 * num2
 )
 ```
-
-#### Optional Parameters
-
-A second feature introduced by ES6 was optional function parameters. Optional parameters allow us to define parameters that will default to some pre-determined value if the function is called without passing them in. We can set optional parameters in a function definition by assigning a value to the parameter definition.
-
-```js
-function exponentiate (base, exponent = 2) {
-  return base ** exponent
-}
-
-exponentiate(4, 3)
-=> 64
-
-exponentiate(4)
-=> 16
-```
-> Optional parameters are very useful when writing **recursive** functions as they allow values to more easily be passed through multiple function calls
-
-## Exercise: Fun with Functions Quiz (15 min / 1:10)
-> 10 minutes exercise, 5 minutes review
-
-What is alerted in each case? Write down your answer before running the code.
-
-1.
-```js
-function foo () {
-  function bar () {
-    return 3
-  }
-
-  return bar()
-
-  function bar () {
-    return 8
-  }
-}
-
-alert(foo())
-```
-2.
-```js
-function foo () {
-  var bar = function () {
-    return 3
-  }
-
-  return bar()
-
-  var bar = function () {
-    return 8
-  }
-}
-
-alert(foo())
-```
-
-3.
-```js
-function foo () {
-  return bar()
-
-  var bar = function () {
-    return 3
-  }
-
-  var bar = function () {
-    return 8
-  }
-}
-
-alert(foo())
-```
-
-4.
-```js
-function foo () {
-  var bar = () => {
-    return 3
-  }
-
-  return bar()
-
-  var bar = () => {
-    return 8
-  }
-}
-
-alert(foo())
-```
-
-5.
-```js
-function foo () {
-  var bar = () => 3
-
-  return bar()
-
-  var bar = () => 8
-}
-
-alert(foo())
-```
-
-6.
-```js
-function foo () {
-  var bar = () => { 3 }
-
-  return bar()
-
-  var bar = () => { 8 }
-}
-
-alert(foo())
-```
-> NOTE: For an arrow function to have implicit return, it **cannot** have a block body enclosed with brackets `{` `}`
-
-<details>
-  <summary><em>Answers, try not to peek!</em></summary>
-  <p>1.) 8 - 2nd function declaration of `bar` replaces the 1st because of hoisting</p>
-  <p>2.) 3 - 1st function expression of `bar` is what is called.  2nd definition is not hoisted</p>
-  <p>3.) `bar` is not a function. bar is called before it is defined. Nothing is hoisted</p>
-  <p>4.) 3 - Arrow functions count as expressions.  Nothing is hoisted, 1st definition wins.</p>
-  <p>5.) 3 - Same as #4, just shorter syntax.</p> 
-  <p>6.) Undefined - No return value given, no implicit return.</p>
-</details>
-
---- 
-
-**Hungry for More?**
-> Grab a Snickers || Try implementing [FizzBuzz](https://git.generalassemb.ly/dc-wdi-fundamentals/fizzbuzz) with Functions!
 
 ## Break (10 min / 1:20)
 
@@ -523,58 +435,7 @@ function sayHello () {
 
 </details>
 
-
-#### Variables
-
-Variables are hoisted too, but *their values are not*. More precisely, variable initializations are hoisted, but value assignments are not hoisted.
-
-Variables are first **initialized**, meaning a space in memory is reserved or allocated for the name, but no value is assigned. That variable (or **reference**) will return `undefined` instead of triggering a `ReferenceError`.
-
-
-```js
-console.log("My name is " + firstName)
-
-var firstName = "John"
-
-// My name is undefined, but it is a variable
-```
-
-### You Do: An Even More Complex Example (15 min / 2:15)
-
-> 10 minutes exercise. 5 minutes review.
-
-In pairs, follow the same process we did in the "We Do" earlier.
-  1. Identify and diagram the scope of each variable.  
-  2. Determine whether each `console.log` will error out or not.
-
-```javascript
-var firstName = 'John' // What scope is this?
-var lastName = 'Dowd'  // What scope is this?
-var age = 19  // What scope is this?
-
-console.log(displayPerson(firstName, lastName))  // Does this work?
-console.log(removeYears()) // Does this work?
-
-function displayPerson (fname, lname) { // What scope are these parameters?
-  var prefix = 'Mr'  // What scope is this?
-  var fullName = null  // What scope is this?
-
-  function getFullName () {
-    var suffix = "Esq."  // What scope is this?
-    return fullName = prefix + " " + fname + " " + lname + " " + suffix
-  }
-
-  return getFullName()
-}
-
-var removeYears = function () {
-  var minusYears = 10  // What scope is this?
-  var age = 49 // What scope is this?
-  return age - minusYears
-}
-```
-
-### You do: Write your own (15 min / 2:30)
+### You do: Write your own (15 min / 2:15)
 
 > 10 minute exercise. 5 minute review
 
@@ -588,6 +449,7 @@ Write a small piece of code that meets the following requirements. Identify and 
 Some ideas for inspiration:
 * Name scrambler (takes a string name input and modifies it in some way)
 * Take two numbers and return the square root of the difference
+* A function that shuffles an array.
 
 ### Bonus: Immediately-Invoked Function Expressions
 
