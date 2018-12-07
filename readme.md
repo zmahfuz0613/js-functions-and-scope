@@ -142,18 +142,26 @@ Are there advantages to doing it the first way? What about the second way? Which
 
 ### You do: Write some functions (15 min / 0:40)
 
-Open your code editor and spend 15 minutes writing some code and getting a feel for functions. Try and work through all of these, but at the very least do 1 from each category.
+Open your code editor and spend 15 minutes writing some code and getting a feel for functions. Try and work through all of these, but at the very least do 2 from each category.
+
+Start with the basics for these.
+
+Write one function per bullet point. Write a function that:
+* Console logs "hello"
+* Console logs "world"
+* Takes a parameter called "name" and console logs it
+* Takes a parameter called "name" and console logs "hello" + name
+* Takes a parameter called "number" and multiplies it by itself, then console logs the result
 
 These functions should all return something. Each should:
-* Take a string as an input and reverse it and return it
 * Take a number as a parameter and return itself squared.
 * Have 3 optional parameters, all numbers. Add all the numbers together. If the function is called without passing any numbers in, simply return 10.
 * Take a number and add some amount of zeroes to the end, returning it (make sure you return a number, not a string)
-* return a function (yes you can write functions inside functions!)
+* return a function that console logs 'hello world' (yes you can write functions inside functions!)
 
 Also, write some functions with side effects.
 * Declare a variable, assigning a string to it. Then write a function that modifies that string without returning anything.
-* Declare a variable, assigning an array to it. Then write a function that removes the first item from the array.
+* Declare a variable, assigning an array that contains 5 numbers to it. Then write a function that removes the first item from the array.
 
 Lastly: 
 * Write two functions that do the same thing, but one returns the value and the other modifies a variable with side effects. 
