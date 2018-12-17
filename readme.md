@@ -142,7 +142,7 @@ Are there advantages to doing it the first way? What about the second way? Which
 
 ### You do: Write some functions (15 min / 0:40)
 
-Open your code editor and spend 15 minutes writing some code and getting a feel for functions. Try and work through all of these, but at the very least do 2 from each category.
+Open your code editor and spend 15 minutes writing some code and getting a feel for functions. Try and work through all of these, but at the very least do the first 5 and then 1 from each category.
 
 Start with the basics for these.
 
@@ -172,6 +172,9 @@ Lastly:
 Let's say we've defined a function. Now we need to call it...
 
 ```js
+// call a function, passing no arguments
+multiply()
+
 // Call a function, passing 2 arguments in
 multiply(2, 5)
 
@@ -199,6 +202,8 @@ function multiply (num1, num2) {
 var multiply = function (num1, num2) {
   return num1 * num2
 }
+
+// var, let, and const are all valid here
 ```
 
 #### Declarations vs. Expressions
@@ -225,8 +230,10 @@ Function declarations are processed before any code is executed, meaning you can
 Conversely, function expressions **are not** hoisted, meaning you cannot call them before they are defined in the flow of your code.
 
 What do you think will happen when we run the below code...
+
 ```js
 multiply(3, 5)
+
 var multiply = function (num1, num2){
   return num1 * num2
 }
@@ -237,17 +244,20 @@ Surely the same thing will happen when we run the below code...
 
 ```js
 multiply(3, 5)
+
 function multiply (num1, num2) {
   return num1 * num2
 }
 // function declaration
 ```
+
 > We can successfully call the multiply function before declaring it. When our script file loads, the browser processes all function declarations first, and then runs the rest of our JavaScript from top to bottom.
 
 Knowing this, what will happen each time we call `express` and `declare` in the below example?
 
 ```js
-express()        // What happens when we run this function at this point in the code?
+// What happens when we run this function at this point in the code?
+express()
 
 var express = function () {
   console.log('Function expression called.')
