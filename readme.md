@@ -104,6 +104,24 @@ exponentiate(4)
 > Optional parameters are very useful when writing **recursive** functions as
 > they allow values to more easily be passed through multiple function calls
 
+### Calling vs Referencing a Function
+
+Let's say we've defined a function. Now we need to call it...
+
+```js
+// call a function, passing no arguments
+multiply();
+
+// Call a function, passing 2 arguments in
+multiply(2, 5);
+
+// Reference the function. What happens if we reference the function without parentheses?
+multiply;
+```
+
+> When you pass a function into another function as a parameter, do you call it
+> or reference it?
+
 #### Output and Side Effects
 
 ```js
@@ -163,24 +181,6 @@ What does the first one do? What does the second one do?
 
 Are there advantages to doing it the first way? What about the second way? Which
 one seems easier to understand?
-
-### Calling vs Referencing a Function
-
-Let's say we've defined a function. Now we need to call it...
-
-```js
-// call a function, passing no arguments
-multiply();
-
-// Call a function, passing 2 arguments in
-multiply(2, 5);
-
-// Reference the function. What happens if we reference the function without parentheses?
-multiply;
-```
-
-> When you pass a function into another function as a parameter, do you call it
-> or reference it?
 
 ### You do: Write some functions (15 min / 0:40)
 
