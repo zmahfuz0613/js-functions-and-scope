@@ -354,7 +354,7 @@ const multiply = (num1, num2) => {
 Or, to simplify it further..
 
 ```js
-const multiply = (num1, num2) => num1 * num2;
+const multiply = (num1, num2) => (num1 * num2);
 ```
 
 Arrow functions with a "concise" function body (no brackets and on one line)
@@ -365,7 +365,7 @@ However, this single line return can be faked with parentheses (NOT CURLY
 BRACKETS!)
 
 ```js
-const multiply = (num1, num2) => num1 * num2;
+const multiply = (num1, num2) => (num1 * num2);
 ```
 
 ## Break (10 min / 1:20)
