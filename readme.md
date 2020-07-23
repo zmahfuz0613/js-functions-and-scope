@@ -1,6 +1,6 @@
 # Functions and Scope
 
-## Framing (5 min / 0:05)
+## Framing
 
 One feature of functions in JavaScript is that each function creates a new
 "scope" when it is defined. Scope defines what variables and functions are
@@ -103,7 +103,7 @@ What does the first one do? What does the second one do?
 Are there advantages to doing it the first way? What about the second way? Which
 one seems easier to understand?
 
-### You do: Write some functions
+### You do: Write some functions(15 mins)
 
 Open your code editor and spend 15 minutes writing some code and getting a feel
 for functions. Try and work through all of these, but at the very least do the
