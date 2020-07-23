@@ -2,13 +2,6 @@
 
 ## Framing (5 min / 0:05)
 
-We've learned a lot of things that are fundamental to programming, such as
-primitive and complex data types, conditionals, and loops. However, we still
-need a way to encapsulate logic and make it reusable (make our code more DRY).
-Functions are a fundamental part of JavaScript that allow us to contain all of
-the logic of a particular operation within a named entity that can be activated,
-or "called", repeatedly from other parts of our code.
-
 One feature of functions in JavaScript is that each function creates a new
 "scope" when it is defined. Scope defines what variables and functions are
 accessible at any given point in the execution of your code. Understanding scope
@@ -22,9 +15,6 @@ too.
 
 ### Functions
 
-- Describe what a JavaScript function is
-- Recognize the parts of a function
-- Write a function in JavaScript using a declaration and an expression
 - State the difference between a function's output and side effects
 - Differentiate between referencing and invoking a function
 - Define hoisting
@@ -33,76 +23,7 @@ too.
 
 - Describe scope and how it governs how data is able to be accessed in code
 
-## Functions
 
-**What is a Function?**
-
-- Fundamental component of JavaScript
-- A reusable block of JavaScript code used to perform a task
-- Simply put, a function is a block of code that takes an input, processes that
-  input and then produces some form of output
-
----
-
-**Why do we use functions?**
-
-Benefits of functions:
-
-- Reusability
-- DRYness
-- Naming convention (describes intent)
-
----
-
-### Recognize the Parts (20 min / 0:25)
-
-**What are the components of a function?**
-
-#### Function Container
-
-```js
-function multiply() {}
-```
-
-#### Input Parameters (or Arguments)
-
-```js
-function multiply(num1, num2) {
-  // now you have two variables you can access
-  // num1 and num2
-}
-```
-
-> When we declare a function that takes input values, we call these values
-> parameters.
-
-> Conversely, when we _call_ a function and pass values into it, those values
-> are called arguments.
-
-> These terms are often used interchangeably, which is okay. But knowing the
-> difference can come in handy.
-
-#### Default/Optional Parameters
-
-Default parameters were introduced in ES6. They allow us to define parameters
-that will default to some pre-determined value if the function is called without
-passing them in. We can set optional parameters in a function definition by
-assigning a value to the parameter definition.
-
-```js
-function exponentiate (base, exponent = 2) {
-  return base ** exponent
-}
-
-exponentiate(4, 3)
-=> 64
-
-exponentiate(4)
-=> 16
-```
-
-> Optional parameters are very useful when writing **recursive** functions as
-> they allow values to more easily be passed through multiple function calls
 
 ### Calling vs Referencing a Function
 
@@ -182,7 +103,7 @@ What does the first one do? What does the second one do?
 Are there advantages to doing it the first way? What about the second way? Which
 one seems easier to understand?
 
-### You do: Write some functions (15 min / 0:40)
+### You do: Write some functions
 
 Open your code editor and spend 15 minutes writing some code and getting a feel
 for functions. Try and work through all of these, but at the very least do the
@@ -223,48 +144,8 @@ Lastly:
   - The functions should both add the string "flabbergasted" on to the end of an
     array
 
-### Function Declarations and Expressions (10 min / 0:50)
 
-There are two ways to define a function...
-
-#### Declaration
-
-```js
-function multiply(num1, num2) {
-  return num1 * num2;
-}
-```
-
-#### Expression
-
-```js
-var multiply = function(num1, num2) {
-  return num1 * num2;
-};
-
-// var, let, and const are all valid here
-```
-
-#### Declarations vs. Expressions
-
-Calling them is the same regardless of how they're declared.
-
-```js
-multiply(2, 5);
-```
-
-Both do the same thing and run the same chunk of code but they are different.
-
-**What differences do you notice?**
-
-- **Function declarations** define functions without assigning them to
-  variables.
-- **Function expressions** assign _anonymous functions_ to variables.
-
-While we call/reference functions defined through declarations and expressions
-the same way, they do have a subtle but important difference...
-
-### Hoisting (10 min / 1:00)
+### Hoisting
 
 Function declarations are processed before any code is executed, meaning you can
 call functions before they are declared in the flow of your code. This behavior
@@ -329,52 +210,11 @@ function declare() {
 You can read more about hoisting
 [here](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
 
-### ES6 Features (10 min / 1:10)
 
-#### Arrow Functions
-
-Following the release of ECMAScript 6 (ES6) in 2015, anonymous functions can be
-written as "arrow functions", a syntax adapted from CoffeeScript.
-
-```js
-var multiply = function(num1, num2) {
-  // function expression
-  return num1 * num2;
-};
-```
-
-What does this look like in ES6?
-
-```js
-const multiply = (num1, num2) => {
-  return num1 * num2;
-};
-```
-
-Or, to simplify it further..
-
-```js
-const multiply = (num1, num2) => num1 * num2;
-```
-
-Arrow functions with a "concise" function body (no brackets and on one line)
-have "implicit return". This means you can leave out the `return` keyword and it
-still returns.
-
-However, this single line return can be faked with parentheses (NOT CURLY
-BRACKETS!)
-
-```js
-const multiply = (num1, num2) => (
-  num1 * num2
-)
-```
-
-## Break (10 min / 1:20)
 
 ## Scope
 
-### What Is Scope? (15 min / 1:35)
+### What Is Scope?
 
 **In real life:** Your "scope" is what your eyes can see from wherever you're
 standing.
@@ -438,7 +278,7 @@ Another way to say this...
 - However, a function can access all variables and functions defined inside the
   scope in which it is defined (which includes all outer scopes).
 
-### We Do: A More Complex Example (15 min / 1:50)
+### We Do: A More Complex Example
 
 Let's walk through this example in two steps...
 
@@ -479,7 +319,7 @@ console.log(batterName); // Does this work?
 
 </details>
 
-### More on Hoisting (10 min / 2:00)
+### More on Hoisting
 
 #### Functions
 
@@ -525,9 +365,8 @@ function sayHello() {
 
 </details>
 
-### You do: Write your own (15 min / 2:15)
+### You do: Write your own
 
-> 10 minute exercise. 5 minute review
 
 Write a small piece of code that meets the following requirements. Identify and
 put a comment next to each variable identifying its scope.
@@ -584,17 +423,6 @@ local scope to enclose all variables within it.
 > from using it.
 
 ---
-
-## Review Questions
-
-1. What is a functions in javascript and how can they be useful?
-2. How is a side effect different from an output?
-3. What is the difference between calling and referencing a function?
-4. How is a function declaration different than a function expression?
-5. Explain the difference between local and global scope.
-6. Explain how hoisting can affect functions.
-7. Explain how hoisting can affect variables.
-8. What does DRY mean?
 
 ## Bonus: Test Your Scope Knowledge
 
